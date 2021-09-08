@@ -1,0 +1,55 @@
+---
+- name: Deploy servers in MGEP Acct
+  hosts: servers
+  connection: local
+  gather_facts: False
+  become: no
+  var_files:
+    - "../inventory/group_vars/all_vars.yml"
+    - "../inventory/group_vars/servers_vars.yml"
+  tasks:
+    # This is required to work with Dynamic inventory and provide group_vars
+    # before actually provisioning
+    - name: Add Localhost to the group
+      add_host:
+        name: localhost
+        groups: servers
+      tags:
+        - always
+    
+    - name: Calling CloudFormation Teamplate
+      cloudformation:
+        stack_name: "{{ stack_name }}"
+        state: "present"
+        region: "{{ aws_region }}"
+        disable_rollback: true
+        template: "../files/cloudformation-template.yml"
+        template_parameters:
+          Image: "{{ ami_id }}"
+          KeyPairName: "{{ aws_key_name }}"
+          InstanceType: "{{ aws_instancetype }}"
+          EnvId: "{{ env_id }}"
+          RootVolumeName: "{{ disks[0].device_name }}"
+          RootVolumeType: "{{ disks[0].type }}"
+          RootVolumeSize: "{{ disks[0].size }}"
+          ServerDomain: "{{ dns_domain }}"
+          ServerName1: "{{ server_name1 }}"
+          ServerName2: "{{ server_name2 }}"
+          AwsZone1: "{{ aws_az1 }}"
+          AwsZone2: "{{ aws_az2 }}"
+          EBSkey: "{{ ebs_key }}"
+          Subnet1: "{{ subnet1 }}"
+          Subnet2: "{{ subnet2 }}"
+          PrivateRoute53HostedZone: "{{ hosted_zone }}"
+          VPC: "{{ vpc_id }}"
+      when: hosting_infrastructure == "aws"
+    
+    # - name: Delete existing AWS cloudformation stack
+    #   cloudformation:
+    #     stack_name: "{{ stack_name }}"
+    #     state: "absent"
+    #     region: "{{ aws_region }}"
+    #     disable_rollback: true
+    #   tags:
+    #     - never
+    #     - deletestack
