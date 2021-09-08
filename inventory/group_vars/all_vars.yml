@@ -10,7 +10,7 @@ dns_domain: "{{ env_id }}.com"
 
 ami_id: "ami-087c17d1fe0178315" #This is default Linux Amazon AMI
 
-aws_key_name: "srawi"
+aws_key_name: "srawi-poc"
 
 aws_az1: "us-east-1a"
 aws_az2: "us-east-1b"

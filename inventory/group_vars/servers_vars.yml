@@ -12,7 +12,7 @@ aws_instancetype: "t2.medium"
 subnet1: subnet-0f29ba3d25a0ffe50
 subnet2: subnet-0927e9efdfa56f9e2
 
-ebs_key: "ff01e1f8-edfa-44d6-b511-3fc07445765c"
+ebs_key: "2b1170dd-b829-4131-a244-ad6905109a12"
 hosted_zone: Z0595769M0U5QKSNS415 # dev.maxomni.com
 vpc_id: vpc-08bc22c74b865ad81
 
