@@ -2,7 +2,7 @@
 
 stack_name: "myservers"
 
-aws_key_name: "srawikey"
+#aws_key_name: "srawikey"
 
 server_name1: "server1.srawi.com"
 server_name2: "server2.srawi.com"
@@ -20,5 +20,5 @@ vpc_id: vpc-08bc22c74b865ad81
 disks:
   - name: "root_volume"
     type: "gp2"
-    size: "50"
+    size: "30"
     device_name: "/dev/sda1"
