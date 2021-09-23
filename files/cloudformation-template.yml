@@ -64,7 +64,7 @@ Resources:
       InstanceType: !Ref InstanceType
       Tags:
         - Key: 'Name'
-          Value: !Ref ServerName
+          Value: !Ref ServerName1
         - Key: 'env_id'
           Value: !Ref EnvId
       AvailabilityZone: !Ref AwsZone1 

@@ -1,6 +1,6 @@
 ---
 
-stack_name: "myservers"
+stack_name: "srawi-servers"
 
 #aws_key_name: "srawikey"
 
