@@ -8,7 +8,7 @@ env_id: "srawi"
 
 dns_domain: "{{ env_id }}.com"
 
-ami_id: "ami-087c17d1fe0178315" #This is default Linux Amazon AMI
+ami_id: "ami-0c0920917f44284dc" #This is RHEL AMI
 
 aws_key_name: "srawi-poc"
 
