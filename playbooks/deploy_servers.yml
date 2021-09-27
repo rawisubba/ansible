@@ -39,7 +39,7 @@
           EBSkey: "{{ ebs_key }}"
           Subnet1: "{{ subnet1 }}"
           Subnet2: "{{ subnet2 }}"
-          PrivateRoute53HostedZone: "{{ hosted_zone }}"
+          #PrivateRoute53HostedZone: "{{ hosted_zone }}"
           VPC: "{{ vpc_id }}"
       when: hosting_infrastructure == "aws"
     
