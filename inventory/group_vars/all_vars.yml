@@ -1,16 +1,10 @@
 ---
 
 hosting_infrastructure: aws
-
 aws_region: "us-east-1"
-
 env_id: "srawi"
-
 dns_domain: "{{ env_id }}.com"
-
 ami_id: "ami-0c0920917f44284dc" #This is RHEL AMI
-
 aws_key_name: "srawi-poc"
-
 aws_az1: "us-east-1b"
 aws_az2: "us-east-1a"
